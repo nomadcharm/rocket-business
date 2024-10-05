@@ -19,8 +19,14 @@ export const createVideoBanner = () => {
 
 
   playBtn.addEventListener("click", () => {
+    playBtn.style.display = "none";
     video.play();
   });
+
+  video.addEventListener("ended", () => {
+    video.load();
+    playBtn.style.display = "initial";
+  }) 
 
   wrapper.append(video, playBtn);
   return wrapper;

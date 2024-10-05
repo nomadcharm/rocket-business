@@ -13,10 +13,10 @@
 }
 
 @mixin desktop {
-    @media (max-width: (1200px)) {
-      @content;
-    }
+  @media (max-width: (1200px)) {
+    @content;
   }
+}
 
 @mixin tablet-1024 {
   @media (max-width: (1024px)) {
@@ -89,6 +89,7 @@ button {
   padding: 0;
   outline: none;
   border: none;
+  font-size: 0;
   background: transparent;
   cursor: pointer;
 }
@@ -148,18 +149,25 @@ body {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 8px 16px;
-    // width: 193px;
+    padding: 8px 28px;
+    width: 193px;
+    font-family: "Inter", sans-serif;
     font-size: 14px;
-    // font-style: italic;
+    font-style: italic;
     font-weight: 500;
     line-height: 16.8px;
     color: var(--clr-white);
     background-color: var(--clr-apple);
-    transform: skewX(345deg) translate(-50%, -50%);
+    clip-path: polygon(6% 0%, 100% 0%, 94% 100%, 0% 100%);
+    transform: translate(-50%, -50%);
+    transition: background-color 0.3s ease-in-out, clip-path 0.3s ease-in-out;
 
-    & svg {
-      font-style: normal !important;
+    &:focus-visible {
+      clip-path: none;
+    }
+
+    @include hover {
+      background-color: var(--clr-heliotrope);
     }
   }
 }
@@ -272,6 +280,10 @@ body {
       transition: fill 0.3s ease-in-out, scale 0.3s ease-in-out;
     }
 
+    &:focus-visible {
+      scale: 1.2;
+    }
+
     @include hover {
       & svg {
         fill: var(--clr-hot-pink);
@@ -284,6 +296,10 @@ body {
     & svg {
       fill: var(--clr-white);
       transition: fill 0.3s ease-in-out;
+    }
+
+    &:focus-visible {
+      scale: 1.2;
     }
 
     @include hover {
@@ -381,12 +397,18 @@ body {
       border-radius: 50%;
       background-color: var(--clr-heliotrope);
       transform: translate(50%, 50%);
-      transition: width 1.2s ease-in-out, height 1.2s ease-in-out;
+      transition: width 1.2s ease-in-out, height 1.2s ease-in-out, outline 0.3s ease-in-out;
     }
 
-    &:hover::before {
-      width: 350px;
-      height: 350px;
+    &:focus-visible {
+      outline: 2px solid var(--clr-heliotrope);
+    }
+
+    @include hover {
+      &::before {
+        width: 350px;
+        height: 350px;
+      }
     }
   }
 

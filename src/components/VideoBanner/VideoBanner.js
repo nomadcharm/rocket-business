@@ -11,11 +11,14 @@ export const createVideoBanner = () => {
 
   const playBtn = document.createElement("button");
   playBtn.classList.add("banner__btn");
-  playBtn.innerHTML = `Смотреть видео
+  const span = document.createElement("span");
+  span.textContent = "Смотреть видео"
+  playBtn.innerHTML = `
   <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M2.91675 2.25L11.0834 7.5L2.91675 12.75V2.25Z" stroke="white" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
   `;
+  playBtn.prepend(span)
 
 
   playBtn.addEventListener("click", () => {
@@ -25,7 +28,7 @@ export const createVideoBanner = () => {
 
   video.addEventListener("ended", () => {
     video.load();
-    playBtn.style.display = "initial";
+    playBtn.style.display = "flex";
   }) 
 
   wrapper.append(video, playBtn);

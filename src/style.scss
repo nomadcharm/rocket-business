@@ -30,6 +30,12 @@
   }
 }
 
+@mixin mobile-425 {
+  @media (max-width: (425px)) {
+    @content;
+  }
+}
+
 @mixin hover {
   @media (any-hover: hover) {
     &:hover {
@@ -95,11 +101,11 @@ body {
 
 .container {
   margin-inline: auto;
-  padding: 0 20px;
-  width: min(100%, 1240px);
+  padding: 0 16px;
+  width: min(100%, 1232px);
 
   @include tablet-1024 {
-    width: min(100%, 824px);
+    width: min(100%, 816px);
   }
 }
 
@@ -109,6 +115,11 @@ body {
   padding-bottom: 64px;
   background-color: var(--clr-white);
 
+  @include mobile-425 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
   &__wrapper {
     position: relative;
     width: 100%;
@@ -117,6 +128,10 @@ body {
 
     @include tablet-1024 {
       height: 337px;
+    }
+
+    @include mobile-425 {
+      height: 204px;
     }
   }
 

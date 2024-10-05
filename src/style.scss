@@ -9,7 +9,14 @@
   --clr-sun-shade: #ffa726;
   --clr-heliotrope: #ac59f1;
   --clr-picton-blue: #39b0f4;
+  --clr-tundora: #444;
 }
+
+@mixin desktop {
+    @media (max-width: (1200px)) {
+      @content;
+    }
+  }
 
 @mixin tablet-1024 {
   @media (max-width: (1024px)) {
@@ -17,6 +24,19 @@
   }
 }
 
+@mixin tablet-768 {
+  @media (max-width: (768px)) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (any-hover: hover) {
+    &:hover {
+      @content;
+    }
+  }
+}
 
 @font-face {
   font-family: "Inter";
@@ -94,6 +114,10 @@ body {
     width: 100%;
     height: 517px;
     cursor: pointer;
+
+    @include tablet-1024 {
+      height: 337px;
+    }
   }
 
   &__video {
@@ -185,6 +209,7 @@ body {
         grid-column: 7 / 10;
         grid-row: 1 / 3;
       }
+
     }
 
     &:nth-child(5) {
@@ -224,8 +249,34 @@ body {
     flex-direction: column;
     gap: 2px;
     font-size: 0;
+  }
 
-    // hover for buttons
+  &__like-btn {
+    & svg {
+      fill: var(--clr-white);
+      transition: fill 0.3s ease-in-out, scale 0.3s ease-in-out;
+    }
+
+    @include hover {
+      & svg {
+        fill: var(--clr-hot-pink);
+        scale: 1.2;
+      }
+    }
+  }
+
+  &__view-btn {
+    & svg {
+      fill: var(--clr-white);
+      transition: fill 0.3s ease-in-out;
+    }
+
+    @include hover {
+      & svg {
+        fill: var(--clr-picton-blue);
+        scale: 1.2;
+      }
+    }
   }
 
   &__promo-group {
@@ -319,8 +370,45 @@ body {
     }
 
     &:hover::before {
-      width: 300px;
-      height: 300px;
+      width: 350px;
+      height: 350px;
+    }
+  }
+
+  &__sm {
+    padding-top: 196px;
+
+    &>.card__title {
+      font-size: 14px;
+      line-height: 16.8px;
+      color: var(--clr-tundora);
+    }
+
+    &>.card__promo-group {
+      top: 10px;
+      left: 10px;
+      bottom: 0;
+
+      &>.card__promo {
+        order: 1;
+      }
+
+      &>.card__discount {
+        order: 2;
+      }
+    }
+
+    &>.card__action-group {
+      flex-direction: column;
+      justify-self: auto;
+
+      &>.card__purchase-btn {
+        width: 100%;
+      }
+
+      &>.card__price {
+        color: var(--clr-tundora);
+      }
     }
   }
 }

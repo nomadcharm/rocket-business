@@ -14,7 +14,9 @@ export const productCard = (product) => {
   btnGroup.classList.add("card__btn-group");
 
   const likeBtnEl = createLikeBtn();
+  likeBtnEl.classList.add("card__like-btn");
   const viewBtnEl = createViewBtn();
+  viewBtnEl.classList.add("card__view-btn");
 
   const promoGroup = document.createElement("div");
   promoGroup.classList.add("card__promo-group");

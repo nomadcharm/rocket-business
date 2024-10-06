@@ -22,6 +22,12 @@ app.append(banner, productsSection);
 }
 createMainPage()
 
+setTimeout(() => {
+  const popUp = createPopUp()
+  app.append(popUp)
+  popUp.classList.add("is-open")
+}, 2000)
+
 
 // 1.5 часа
 // + 2 часа

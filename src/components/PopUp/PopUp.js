@@ -1,3 +1,5 @@
+import { removeErrorMessage, validateForm } from "../FormValidation/FormValidation";
+
 const createInput = (inputType, spanText) => {
   const labelEl = document.createElement("label");
   labelEl.classList.add("form__label");
@@ -50,10 +52,24 @@ export const createPopUp = () => {
     <path d="M15 5L5 15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     <path d="M5 5L15 15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>
-  `
+  `;
 
-  submitBtn.append(submitBtnSpanEl)
-  formBottomEl.append(checkboxEl, submitBtn)
+  closeBtn.addEventListener("click", () => {
+    if (modalEl.classList.contains("is-open")) {
+      modalEl.classList.remove("is-open");
+    }
+  })
+
+  window.addEventListener("click", (e) => {
+    if (!modalEl.firstChild.contains(e.target)) {
+      modalEl.classList.remove("is-open");
+    }
+  })
+
+  validateForm(formEl);
+
+  submitBtn.append(submitBtnSpanEl);
+  formBottomEl.append(checkboxEl, submitBtn);
   formEl.append(nameInputEl, phoneInputEl, formBottomEl);
   innerModalEl.append(modalTitleEl, formEl, closeBtn);
   modalEl.append(innerModalEl);

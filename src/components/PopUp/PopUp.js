@@ -1,4 +1,5 @@
-import { removeErrorMessage, validateForm } from "../FormValidation/FormValidation";
+import { validateForm } from "../FormValidation/FormValidation";
+import IMask from "imask";
 
 const createInput = (inputType, spanText) => {
   const labelEl = document.createElement("label");
@@ -34,6 +35,10 @@ export const createPopUp = () => {
   const nameInputEl = createInput("text", "Ваше имя *");
   const phoneInputEl = createInput("text", "Номер телефона*");
 
+  IMask(phoneInputEl.firstChild, {
+    mask: "+{7} (000) 000-00-00]",
+    lazy: true,
+});
   const formBottomEl = document.createElement("div");
   formBottomEl.classList.add("form__bottom");
   const checkboxEl = createInput("checkbox", "Я соглашаюсь на обработку персональных данных");

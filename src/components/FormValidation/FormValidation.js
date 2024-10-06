@@ -8,7 +8,7 @@ export const showErrorMessage = (el, text) => {
 };
 
 export const removeErrorMessage = (input) => {
-  const errorMessage = document.querySelector(".error-message");
+  const errorMessage = input.parentElement.querySelector(".error-message");
 
   if (input.parentElement.contains(errorMessage)) {
     errorMessage.remove()

@@ -59,15 +59,15 @@ export const createPopUp = () => {
   </svg>
   `;
 
-  closeBtn.addEventListener("click", () => {
-    if (modalEl.classList.contains("is-open")) {
-      modalEl.classList.remove("is-open");
-    }
-  })
+  const closeModal = () => {
+    modalEl.classList.remove("is-open");
+  }
+
+  closeBtn.addEventListener("click", (closeModal))
 
   window.addEventListener("click", (e) => {
     if (!modalEl.firstChild.contains(e.target)) {
-      modalEl.classList.remove("is-open");
+      closeModal()
     }
   })
 

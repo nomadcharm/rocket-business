@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --clr-white: #fff;
+  --clr-concrete: #f2f2f2;
+  --clr-mercury: #e6e6e6;
+  --clr-alto: #d1d1d1;
+  --clr-apple: #18c576;
+  --clr-hot-pink: #ff5bc6;
+  --clr-sun-shade: #ffa726;
+  --clr-heliotrope: #ac59f1;
+  --clr-picton-blue: #39b0f4;
+  --clr-mandy: #e44b4b;
+  --clr-tundora: #444;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  display: inline-block;
+  padding: 0;
+  outline: none;
+  border: none;
+  font-size: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+input {
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+}
+
+body {
+  font-family: "Inter", Tahoma, Geneva, Verdana, sans-serif;
+}

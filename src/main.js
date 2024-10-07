@@ -2,7 +2,7 @@ import { createVideoBanner } from "./components/VideoBanner/VideoBanner";
 import { createSection } from "./components/Section/Section";
 import { productList } from "./components/ProductList/ProductList";
 import { createPopUp } from "./components/PopUp/PopUp";
-import "./style.scss";
+import "./scss/style.scss";
 
 const app = document.querySelector('#app');
 

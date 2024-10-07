@@ -1,0 +1,19 @@
+.container {
+  margin-inline: auto;
+  padding: 0 16px;
+  width: min(100%, 1232px);
+
+  @include tablet-1024 {
+    width: min(100%, 816px);
+  }
+}
+
+.section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+
+  @include mobile-425 {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+}

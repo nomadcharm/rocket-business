@@ -100,7 +100,8 @@ export const createPopUp = () => {
   formEl.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    sendData()
+    sendData();
+    formEl.reset();
   })
 
   submitBtn.append(submitBtnSpanEl);

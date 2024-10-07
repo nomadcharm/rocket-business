@@ -17,8 +17,8 @@ const showSlide = (index, slider, pagination) => {
       slides[i].style.opacity = "1";
     } else {
       slides[i].style.opacity = "0.5";
-    }
-  }
+    };
+  };
 
   currentIndex = Math.max(0, Math.min(index, maxIndex));
   slider.style.transform = `translateX(-${currentIndex * CARD__WIDTH}px)`;
@@ -52,6 +52,7 @@ export const createSlider = (productListEl, listItems, parentDiv) => {
 
   let startX;
   let endX;
+  
   slider.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   }, { passive: true });

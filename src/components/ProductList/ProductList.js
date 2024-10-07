@@ -2,6 +2,9 @@ import { products } from "../../db";
 import { productCard } from "../ProductCard/ProductCard";
 import { createSlider } from "../Slider/Slider";
 
+let sliderCreated = false;
+let slider;
+
 export const productList = () => {
   const listItems = [];
   const parentDiv = document.createElement("div");
@@ -13,19 +16,16 @@ export const productList = () => {
     listItem.classList.add("products__card");
     const productEl = productCard(product);
     productEl.classList.add("card");
+
     if (product.id === 4 || product.id === 5) {
       productEl.classList.add("card__sm");
-    }
+    };
 
     listItem.append(productEl);
     listItems.push(productEl);
     productListEl.append(listItem);
   });
 
-
-
-  let sliderCreated = false;
-  let slider;
   const enableResponsiveList = () => {
     if (innerWidth <= 425 && !sliderCreated) {
       slider = createSlider(productListEl, listItems, parentDiv);
@@ -36,8 +36,8 @@ export const productList = () => {
         productListEl.removeChild(existingSlider);
       }
       sliderCreated = false;
-    }
-  }
+    };
+  };
 
   window.addEventListener("resize", () => {
     enableResponsiveList()
@@ -46,7 +46,6 @@ export const productList = () => {
   window.addEventListener("load", () => {
     enableResponsiveList()
   });
-
 
   parentDiv.prepend(productListEl);
   return parentDiv;

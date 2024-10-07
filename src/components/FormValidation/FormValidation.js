@@ -1,6 +1,5 @@
 
 export const showErrorMessage = (el, text) => {
-
   const errorMessage = document.createElement("p");
   errorMessage.classList.add("error-message");
   errorMessage.textContent = text;
@@ -11,9 +10,9 @@ export const removeErrorMessage = (input) => {
   const errorMessage = input.parentElement.querySelector(".error-message");
 
   if (input.parentElement.contains(errorMessage)) {
-    errorMessage.remove()
-  }
-}
+    errorMessage.remove();
+  };
+};
 
 export const validateForm = (form) => {
   let validated = true;
@@ -25,24 +24,23 @@ export const validateForm = (form) => {
     inputs.forEach(input => {
       if (input.value.trim() === "") {
         validated = false;
-      }
+      };
     });
 
     inputs.forEach(input => {
       input.addEventListener("input", () => {
-        removeErrorMessage(input)
-      })
-    })
+        removeErrorMessage(input);
+      });
+    });
 
     const checkbox = form.querySelector(".form__checkbox");
     if (checkbox && !checkbox.checked) {
       validated = false;
-    }
+    };
 
     if (validated) {
       form.querySelector(".form__submit").disabled = false;
-    }
-
+    };
   };
 
   form.addEventListener("blur", (e) => {
@@ -60,4 +58,3 @@ export const validateForm = (form) => {
     }
   });
 };
-

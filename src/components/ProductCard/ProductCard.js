@@ -10,25 +10,22 @@ const updateProductImages = (product, card) => {
     product.img = product.imgTablet;
   } else if (width > 1025) {
     product.img = product.img;
-  }
-
-  console.log(width)
+  };
 
   card.style.backgroundImage = `url(${product.img})`;
-}
+};
 
 export const productCard = (product) => {
   const cardEl = document.createElement("article");
   cardEl.classList.add("card");
 
   window.addEventListener("load", () => {
-    updateProductImages(product, cardEl)
+    updateProductImages(product, cardEl);
   });
 
   window.addEventListener("resize", () => {
-    updateProductImages(product, cardEl)
+    updateProductImages(product, cardEl);
   });
-
 
   const cardTitleEL = document.createElement("h3");
   cardTitleEL.classList.add("card__title");
@@ -47,8 +44,8 @@ export const productCard = (product) => {
 
   if (product.discount > 0) {
     const discountPromoEl = document.createElement("div");
-    discountPromoEl.classList.add("card__discount")
-    discountPromoEl.classList.add(product.discount < 30 ? "card__discount--sm" : "card__discount--md")
+    discountPromoEl.classList.add("card__discount");
+    discountPromoEl.classList.add(product.discount < 30 ? "card__discount--sm" : "card__discount--md");
     discountPromoEl.textContent = `- ${product.discount}%`;
     promoGroup.append(discountPromoEl);
   };
@@ -63,7 +60,7 @@ export const productCard = (product) => {
       currentPromoEl.classList.add("card__promo--hit");
     } else {
       currentPromoEl.classList.add("card__promo--sale");
-    }
+    };
 
     currentPromoEl.textContent = product.promo;
     promoGroup.append(currentPromoEl);
@@ -78,11 +75,11 @@ export const productCard = (product) => {
 
   const purchaseBtn = document.createElement("button");
   purchaseBtn.classList.add("card__purchase-btn");
-  const purchaseBtnTextEl = document.createElement("span")
+  const purchaseBtnTextEl = document.createElement("span");
   purchaseBtnTextEl.textContent = "Оставить заявку";
 
-  purchaseBtn.appendChild(purchaseBtnTextEl)
-  actionGroup.append(priceEl, purchaseBtn)
+  purchaseBtn.appendChild(purchaseBtnTextEl);
+  actionGroup.append(priceEl, purchaseBtn);
   btnGroup.append(likeBtnEl, viewBtnEl);
   cardEl.append(cardTitleEL, btnGroup, promoGroup, actionGroup);
   return cardEl;

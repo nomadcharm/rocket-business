@@ -28,7 +28,7 @@ const showSlide = (index, slider, pagination) => {
 
 export const createSlider = (productListEl, listItems, parentDiv) => {
   const slider = document.createElement("li");
-  slider.classList.add("products__list--slider");
+  slider.classList.add("products__list-slider");
   const lastTwoItems = listItems.slice(-2);
 
   lastTwoItems.forEach(item => {
@@ -52,7 +52,7 @@ export const createSlider = (productListEl, listItems, parentDiv) => {
 
   let startX;
   let endX;
-  
+
   slider.addEventListener("touchstart", (e) => {
     startX = e.touches[0].clientX;
   }, { passive: true });

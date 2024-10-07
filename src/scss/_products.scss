@@ -7,10 +7,6 @@
     }
   }
 
-  @include mobile-425 {
-    padding-bottom: 80px;
-  }
-
   &__list {
     display: grid;
     gap: 20px 22px;
@@ -32,7 +28,7 @@
       grid-template-rows: 328px 175px 175px 442px;
     }
 
-    &--slider {
+    &-slider {
       position: relative;
       display: flex;
       gap: 16px;
@@ -44,7 +40,7 @@
         grid-column: 2 / 13;
       }
 
-      &>.card__sm {
+      &>.card-sm {
         background-size: contain;
         width: 230px;
         max-height: 410px;

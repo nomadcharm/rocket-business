@@ -1,27 +1,10 @@
-import { createVideoBanner } from "./components/VideoBanner/VideoBanner";
-import { createSection } from "./components/Section/Section";
-import { productList } from "./components/ProductList/ProductList";
+import { createLanding } from "./components/Landing/Landing";
 import { createPopUp } from "./components/PopUp/PopUp";
 import "./scss/style.scss";
 
 const app = document.querySelector('#app');
 
-const createMainPage = () => {
-  // banner section
-  const banner = createSection("banner");
-  const video = createVideoBanner();
-
-  // products section
-  const productsSection = createSection("products");
-  const productsCatalog = productList();
-  productsSection.firstChild.append(productsCatalog);
-
-  banner.firstChild.append(video);
-  app.append(banner, productsSection);
-
-}
-
-createMainPage();
+createLanding(app);
 
 setTimeout(() => {
   const popUp = createPopUp()
@@ -34,4 +17,4 @@ setTimeout(() => {
   setTimeout(() => {
     openModal()
   }, 1000)
-}, 2000)
+}, 5000);

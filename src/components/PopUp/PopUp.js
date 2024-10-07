@@ -87,27 +87,34 @@ export const createPopUp = () => {
         "Content-Type": "application/json; charset=UTF-8"
       }
     });
-    
-    if (!response.ok) {
-      const errorText = await response.text();
-      alert('Error: ' + errorText);
-    } else {
-      const result = await response.text();
-      alert(result);
-    }
-  }
 
-  formEl.addEventListener("submit", (e) => {
-    e.preventDefault();
+    const result = await response.text();
+    const resultNotification = document.createElement("div");
+    resultNotification.classList.add("notification");
+    resultNotification.textContent = result;
+    document.body.append(resultNotification);
 
-    sendData();
-    formEl.reset();
-  })
+    setTimeout(() => {
+      resultNotification.classList.add("move-out");
 
-  submitBtn.append(submitBtnSpanEl);
-  formBottomEl.append(checkboxEl, submitBtn);
-  formEl.append(nameInputEl, phoneInputEl, formBottomEl);
-  innerModalEl.append(modalTitleEl, formEl, closeBtn);
-  modalEl.append(innerModalEl);
-  return modalEl;
+      setTimeout(() => {
+        resultNotification.remove();
+    }, 1000);
+    }, 4000)
+};
+
+formEl.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  sendData();
+  formEl.reset();
+  closeModal();
+});
+
+submitBtn.append(submitBtnSpanEl);
+formBottomEl.append(checkboxEl, submitBtn);
+formEl.append(nameInputEl, phoneInputEl, formBottomEl);
+innerModalEl.append(modalTitleEl, formEl, closeBtn);
+modalEl.append(innerModalEl);
+return modalEl;
 }

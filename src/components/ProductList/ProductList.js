@@ -18,7 +18,7 @@ export const productList = () => {
     productEl.classList.add("card");
 
     if (product.id === 4 || product.id === 5) {
-      productEl.classList.add("card__sm");
+      productEl.classList.add("card-sm");
     };
 
     listItem.append(productEl);
@@ -31,7 +31,7 @@ export const productList = () => {
       slider = createSlider(productListEl, listItems, parentDiv);
       sliderCreated = true;
     } else if (innerWidth > 425 && sliderCreated) {
-      const existingSlider = productListEl.querySelector(".products__list--slider");
+      const existingSlider = productListEl.querySelector(".products__list-slider");
       if (existingSlider) {
         productListEl.removeChild(existingSlider);
       }

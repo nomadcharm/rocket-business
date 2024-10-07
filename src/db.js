@@ -7,6 +7,8 @@ export const products = [
     promo: "Товар дня",
     price: 570,
     img: "/img/product-1.jpg",
+    imgTablet: "/img/product-1-md.jpg",
+    imgMobile: "/img/product-1-sm.jpg",
   },
   {
     id: 2,
@@ -16,6 +18,8 @@ export const products = [
     promo: "Распродажа",
     price: 140,
     img: "/img/product-2.jpg",
+    imgTablet: "/img/product-2-md.jpg",
+    imgMobile: "/img/product-2-sm.jpg",
   },
   {
     id: 3,
@@ -25,6 +29,8 @@ export const products = [
     promo: "Хит",
     price: 140,
     img: "/img/product-3.jpg",
+    imgTablet: "/img/product-3-md.jpg",
+    imgMobile: "/img/product-3-sm.jpg",
   },
   {
     id: 4,
@@ -34,6 +40,8 @@ export const products = [
     promo: "Товар дня",
     price: 160,
     img: "/img/product-4.jpg",
+    imgTablet: "/img/product-4-md.jpg",
+    imgMobile: "/img/product-4-sm.jpg",
   },
   {
     id: 5,
@@ -43,5 +51,7 @@ export const products = [
     promo: "Хит",
     price: 190,
     img: "/img/product-5.jpg",
+    imgTablet: "/img/product-5-md.jpg",
+    imgMobile: "/img/product-5-sm.jpg",
   },
 ]

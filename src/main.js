@@ -14,13 +14,14 @@ const createMainPage = () => {
   // products section
   const productsSection = createSection("products");
   const productsCatalog = productList();
-  productsSection.firstChild.append(productsCatalog)
+  productsSection.firstChild.append(productsCatalog);
 
   banner.firstChild.append(video);
   app.append(banner, productsSection);
 
 }
-createMainPage()
+
+createMainPage();
 
 setTimeout(() => {
   const popUp = createPopUp()
@@ -34,8 +35,3 @@ setTimeout(() => {
     openModal()
   }, 1000)
 }, 2000)
-
-
-// 1.5 часа
-// + 2 часа
-// + 30 min

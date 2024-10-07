@@ -1,10 +1,34 @@
 import { createLikeBtn } from "../IconButtons/LikeBtn";
 import { createViewBtn } from './../IconButtons/ViewBtn';
 
+const updateProductImages = (product, card) => {
+  const width = window.innerWidth;
+
+  if (width <= 425) {
+    product.img = product.imgMobile;
+  } else if (width <= 1024) {
+    product.img = product.imgTablet;
+  } else if (width > 1025) {
+    product.img = product.img;
+  }
+
+  console.log(width)
+
+  card.style.backgroundImage = `url(${product.img})`;
+}
+
 export const productCard = (product) => {
   const cardEl = document.createElement("article");
   cardEl.classList.add("card");
-  cardEl.style.backgroundImage = `url(${product.img})`
+
+  window.addEventListener("load", () => {
+    updateProductImages(product, cardEl)
+  });
+
+  window.addEventListener("resize", () => {
+    updateProductImages(product, cardEl)
+  });
+
 
   const cardTitleEL = document.createElement("h3");
   cardTitleEL.classList.add("card__title");
@@ -25,7 +49,7 @@ export const productCard = (product) => {
     const discountPromoEl = document.createElement("div");
     discountPromoEl.classList.add("card__discount")
     discountPromoEl.classList.add(product.discount < 30 ? "card__discount--sm" : "card__discount--md")
-    discountPromoEl.textContent = `-${product.discount}%`;
+    discountPromoEl.textContent = `- ${product.discount}%`;
     promoGroup.append(discountPromoEl);
   };
 
@@ -50,7 +74,7 @@ export const productCard = (product) => {
 
   const priceEl = document.createElement("p");
   priceEl.classList.add("card__price");
-  priceEl.textContent = product.price + " ₽";
+  priceEl.textContent = `${product.price} ₽`;
 
   const purchaseBtn = document.createElement("button");
   purchaseBtn.classList.add("card__purchase-btn");

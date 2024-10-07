@@ -32,7 +32,7 @@ export const createSlider = (productListEl, listItems, parentDiv) => {
   const lastTwoItems = listItems.slice(-2);
 
   lastTwoItems.forEach(item => {
-    slider.appendChild(item);
+    slider.appendChild(item.cloneNode(true));
   });
 
   const pagination = document.createElement("div");
@@ -73,4 +73,6 @@ export const createSlider = (productListEl, listItems, parentDiv) => {
       }
     }
   });
+
+  return slider;
 };

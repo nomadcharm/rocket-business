@@ -22,9 +22,31 @@ export const productList = () => {
     productListEl.append(listItem);
   });
 
-  if (innerWidth <= 425) {
-    createSlider(productListEl, listItems, parentDiv);
-  };
+
+
+  let sliderCreated = false;
+  let slider;
+  const enableResponsiveList = () => {
+    if (innerWidth <= 425 && !sliderCreated) {
+      slider = createSlider(productListEl, listItems, parentDiv);
+      sliderCreated = true;
+    } else if (innerWidth > 425 && sliderCreated) {
+      const existingSlider = productListEl.querySelector(".products__list--slider");
+      if (existingSlider) {
+        productListEl.removeChild(existingSlider);
+      }
+      sliderCreated = false;
+    }
+  }
+
+  window.addEventListener("resize", () => {
+    enableResponsiveList()
+  });
+
+  window.addEventListener("load", () => {
+    enableResponsiveList()
+  });
+
 
   parentDiv.prepend(productListEl);
   return parentDiv;

@@ -8,7 +8,7 @@ const createInput = (inputType, spanText) => {
   const inputEl = document.createElement("input");
   inputEl.classList.add(inputType === "checkbox" ? "form__checkbox" : "form__input")
   inputEl.setAttribute("type", inputType);
-  inputEl.setAttribute("required", "true");
+  inputEl.setAttribute("required", "");
 
   const spanEl = document.createElement("span");
   spanEl.classList.add(inputType === "checkbox" ? "form__checkbox-span" : "form__input-span")
@@ -38,7 +38,8 @@ export const createPopUp = () => {
   IMask(phoneInputEl.firstChild, {
     mask: "+{7} (000) 000-00-00]",
     lazy: true,
-});
+  });
+
   const formBottomEl = document.createElement("div");
   formBottomEl.classList.add("form__bottom");
   const checkboxEl = createInput("checkbox", "Я соглашаюсь на обработку персональных данных");
@@ -72,6 +73,35 @@ export const createPopUp = () => {
   })
 
   validateForm(formEl);
+
+  const sendData = async () => {
+    const data = {
+      name: nameInputEl.firstChild.value.trim(),
+      phone: phoneInputEl.firstChild.value,
+    }
+
+    const response = await fetch("mail.php", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8"
+      }
+    });
+    
+    if (!response.ok) {
+      const errorText = await response.text();
+      alert('Error: ' + errorText);
+    } else {
+      const result = await response.text();
+      alert(result);
+    }
+  }
+
+  formEl.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    sendData()
+  })
 
   submitBtn.append(submitBtnSpanEl);
   formBottomEl.append(checkboxEl, submitBtn);

@@ -627,6 +627,10 @@ body {
     background-color: var(--clr-white);
     transform: translateY(-20px);
     transition: transform 0.5s ease-in-out;
+
+    @include mobile-425 {
+      --width: 340px;
+    }
   }
 
   &__title {
@@ -732,6 +736,10 @@ body {
     font-weight: 500;
     line-height: 9.6px;
     color: var(--clr-tundora);
+
+    @include mobile-425 {
+      font-size: 6px;
+    }
 
     &:before {
       content: "";

@@ -1,14 +1,18 @@
 {
+  "homepage": "https://nomadcharm.github.io/rocket-business/",
   "name": "rocket-business-test",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "sass-embedded": "^1.79.4",
     "vite": "^5.4.1"
   },
